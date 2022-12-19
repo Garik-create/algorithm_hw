@@ -74,9 +74,7 @@ class StringListImplTest {
 
     @Test
     void indexOf() {
-//        expected.indexOf(S2);
         Assertions.assertEquals(1,actual.indexOf(S2));
-
     }
 
     @Test
@@ -88,7 +86,6 @@ class StringListImplTest {
     @Test
     void get() {
         Assertions.assertEquals(actual.get(0),S1);
-
     }
 
     @Test

@@ -6,8 +6,6 @@ public class StringListImpl implements StringList {
 
     private int size;
 
-//    List<String> stringsList = new ArrayList<>();
-
     public StringListImpl() {
         this.strings = new String[10];
     }
@@ -16,22 +14,12 @@ public class StringListImpl implements StringList {
         this.strings = new String[initSize];
     }
 
+
     @Override
     public String add(String item) {
         validateSize();
         validateItem(item);
         strings[size++] = item;
-//        for (String s : strings) {
-//            if (s != null) {
-//                stringsList.add(s);
-//            }
-//        }
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        stringsList.add(item);
-//        System.out.println("Добавили элемент " + item);
-//        System.out.println("Список строк полученный = " + stringsList);
-//        stringsList.toArray(strings);
-//        stringsList.clear();
         return item;
     }
 
@@ -48,17 +36,6 @@ public class StringListImpl implements StringList {
         strings[index] = item;
         size++;
 
-//        for (String s : strings) {
-//            if (s != null) {
-//                stringsList.add(s);
-//            }
-//        }
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        stringsList.add(index, item);
-//        System.out.println("Добавили элемент " + item + " по индексу " + index);
-//        System.out.println("Список строк полученный = " + stringsList);
-//        stringsList.toArray(strings);
-//        stringsList.clear();
         return item;
     }
 
@@ -68,15 +45,6 @@ public class StringListImpl implements StringList {
         validateItem(item);
         strings[index] = item;
         return item;
-//        stringsList.addAll(Arrays.asList(strings));
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        String deletedItem = stringsList.set(index, item);
-//        System.out.println("Добавили элемент " + item + " на позицию " + index + ", удалив старый элемент.");
-//        System.out.println("Удалённый элемент = " + deletedItem);
-//        System.out.println("Список строк полученный = " + stringsList);
-//        stringsList.toArray(strings);
-//        stringsList.clear();
-//        return null;
     }
 
     @Override
@@ -90,17 +58,6 @@ public class StringListImpl implements StringList {
             System.arraycopy(strings, index + 1, strings, index, size - index);
         }
         size--;
-//        stringsList.addAll(Arrays.asList(strings));
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        boolean remove = stringsList.remove(item);
-//        if (remove) {
-//            System.out.println("Удалённый элемент = " + item);
-//        } else {
-//            System.out.println(false);
-//        }
-//        System.out.println("Список строк полученный = " + stringsList);
-//        stringsList.toArray(strings);
-//        stringsList.clear();
         return item;
     }
 
@@ -112,33 +69,12 @@ public class StringListImpl implements StringList {
             System.arraycopy(strings, index + 1, strings, index, size - index);
         }
         size--;
-//        stringsList.addAll(Arrays.asList(strings));
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        boolean remove = stringsList.remove(item);
-//        if (remove) {
-//            System.out.println("Удалённый элемент = " + item);
-//        } else {
-//            System.out.println(false);
-//        }
-//        System.out.println("Список строк полученный = " + stringsList);
-//        stringsList.toArray(strings);
-//        stringsList.clear();
         return item;
     }
 
     @Override
     public boolean contains(String item) {
         return indexOf(item) != -1;
-//        for (String s : strings) {
-//            if (s != null) {
-//                stringsList.add(s);
-//            }
-//        }
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        System.out.println("Проверка наличия элемента " + item);
-//        boolean b = stringsList.contains(item);
-//        stringsList.clear();
-//        return b;
     }
 
     @Override
@@ -149,11 +85,6 @@ public class StringListImpl implements StringList {
             }
         }
         return -1;
-//        stringsList.addAll(Arrays.asList(strings));
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        int i = stringsList.indexOf(item);
-//        stringsList.clear();
-//        return i;
     }
 
     @Override
@@ -165,11 +96,6 @@ public class StringListImpl implements StringList {
             }
         }
         return -1;
-//        stringsList.addAll(Arrays.asList(strings));
-//        System.out.println("Список строк изначальный = " + stringsList);
-//        int i = stringsList.lastIndexOf(item);
-//        stringsList.clear();
-//        return i;
     }
 
     @Override
@@ -242,18 +168,6 @@ public class StringListImpl implements StringList {
         return result;
     }
 
-    //    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        StringListImpl that = (StringListImpl) o;
-//        return stringsList.equals(that.stringsList);
-//    }
-
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(stringsList);
-//    }
 
     public static void main(String[] args) {
 ////        String[] strings = {"", "", "", "", ""};
