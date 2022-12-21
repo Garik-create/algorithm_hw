@@ -5,42 +5,25 @@ import algoritms_p2_hw.exceptions.IntegersIsFullException;
 import algoritms_p2_hw.exceptions.InvalidIndexException;
 import algoritms_p2_hw.exceptions.NullItemException;
 
-import java.io.OptionalDataException;
 import java.util.*;
 
 
 public class IntegerListImpl implements IntegerList {
 
-    private final Integer[] integers;
+    private Integer[] integers;
 
     private int size;
 
-    public IntegerListImpl() {
-        this.integers = new Integer[10];
-    }
 
     public IntegerListImpl(int initSize) {
         this.integers = new Integer[initSize];
     }
 
-//    public static String choice;
 
+    void grow() {
+        integers = Arrays.copyOf(integers, size + size / 2);
+    }
 
-//    private void bestSortMethod(Integer[] integers) {
-//        Integer[] arrayToSort = Arrays.copyOf(integers, integers.length);
-//        switch (choice) {
-//            case "bubbleSort" -> {
-//                bubbleSort(arrayToSort);
-//            }
-//            case "insertionSort" -> {
-//                insertionSort(arrayToSort);
-//            }
-//            case "selectionSort" -> {
-//                selectionSort(arrayToSort);
-//            }
-//        }
-//
-//    }
 
     private boolean binarySearch(int item) {
         int min = 0;
@@ -65,8 +48,8 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public Integer add(Integer item) {
-        validateSize();
         validateItem(item);
+        validateSize();
         integers[size++] = item;
         return item;
     }
@@ -123,7 +106,7 @@ public class IntegerListImpl implements IntegerList {
     @Override
     public boolean contains(Integer item) {
         var integers1 = Arrays.copyOf(integers, integers.length);
-        insertionSort(integers1);
+        quickSort(integers1,0,integers1.length-1);
         return binarySearch(item);
     }
 
@@ -181,7 +164,7 @@ public class IntegerListImpl implements IntegerList {
 
     private void validateSize() {
         if (size == integers.length) {
-            throw new IntegersIsFullException();
+            grow();
         }
     }
 
@@ -222,8 +205,6 @@ public class IntegerListImpl implements IntegerList {
         int arraySize = 100000;
         arrayGenerator(arraySize);
         Integer[] randomArray = arrayGenerator(arraySize);
-//        Integer[] randomArray2 = Arrays.copyOf(randomArray, arraySize);
-//        Integer[] randomArray3 = Arrays.copyOf(randomArray, arraySize);
 
         var counterForBubbleSort = timeCounterForBubbleSort(randomArray);
         var counterForSelectionSort = timeCounterForSelectionSort(randomArray);
@@ -338,6 +319,31 @@ public class IntegerListImpl implements IntegerList {
         avgTime = sumTimes / i;
         System.out.println("Время сортировки вставкой: " + avgTime);
         return avgTime;
+    }
+
+    public static void quickSort(Integer[] arr, int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(arr, begin, end);
+
+            quickSort(arr, begin, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, end);
+        }
+    }
+
+    private static int partition(Integer[] arr, int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin - 1);
+
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+
+                swapElements(arr, i, j);
+            }
+        }
+
+        swapElements(arr, i + 1, end);
+        return i + 1;
     }
 
     public static String bestSortChoice(String count1,

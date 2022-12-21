@@ -21,7 +21,6 @@ class IntegerListImplTest {
     private static final Integer I4 = 4;
     private static final Integer I5 = 5;
     private static final Integer I6 = 6;
-    private final String choice = "selectionSort";
 
     @BeforeEach
     public void setUp() {
@@ -37,6 +36,8 @@ class IntegerListImplTest {
         expected.add(I4);
         expected.add(I5);
     }
+
+
 
     @Test
     void add() {
@@ -139,7 +140,7 @@ class IntegerListImplTest {
         actual.add(8);
         actual.add(9);
         actual.add(10);
-        Assertions.assertThrows(IntegersIsFullException.class,
+        Assertions.assertDoesNotThrow(
                 () -> actual.add(11));
     }
 
