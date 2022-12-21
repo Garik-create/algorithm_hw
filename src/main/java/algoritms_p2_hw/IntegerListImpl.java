@@ -5,6 +5,7 @@ import algoritms_p2_hw.exceptions.IntegersIsFullException;
 import algoritms_p2_hw.exceptions.InvalidIndexException;
 import algoritms_p2_hw.exceptions.NullItemException;
 
+import java.io.OptionalDataException;
 import java.util.*;
 
 
@@ -22,33 +23,38 @@ public class IntegerListImpl implements IntegerList {
         this.integers = new Integer[initSize];
     }
 
-    public static String choice;
+//    public static String choice;
 
 
-    private void bestSortMethod() {
-        switch (choice) {
-            case "bubbleSort" -> {
-                bubbleSort(integers);
-            }
-            case "insertionSort" -> {
-                insertionSort(integers);
-            }
-            case "selectionSort" -> selectionSort(integers);
-        }
+//    private void bestSortMethod(Integer[] integers) {
+//        Integer[] arrayToSort = Arrays.copyOf(integers, integers.length);
+//        switch (choice) {
+//            case "bubbleSort" -> {
+//                bubbleSort(arrayToSort);
+//            }
+//            case "insertionSort" -> {
+//                insertionSort(arrayToSort);
+//            }
+//            case "selectionSort" -> {
+//                selectionSort(arrayToSort);
+//            }
+//        }
+//
+//    }
 
-    }
     private boolean binarySearch(int item) {
         int min = 0;
-        int max = integers.length - 1;
+        var integers1 = Arrays.copyOf(integers, integers.length);
+        int max = integers1.length - 1;
 
         while (min <= max) {
             int mid = (min + max) / 2;
 
-            if (item == integers[mid]) {
+            if (item == integers1[mid]) {
                 return true;
             }
 
-            if (item < integers[mid]) {
+            if (item < integers1[mid]) {
                 max = mid - 1;
             } else {
                 min = mid + 1;
@@ -116,7 +122,8 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public boolean contains(Integer item) {
-        bestSortMethod();
+        var integers1 = Arrays.copyOf(integers, integers.length);
+        insertionSort(integers1);
         return binarySearch(item);
     }
 
@@ -214,19 +221,19 @@ public class IntegerListImpl implements IntegerList {
 
         int arraySize = 100000;
         arrayGenerator(arraySize);
-        Integer[] randomArray1 = arrayGenerator(arraySize);
-        Integer[] randomArray2 = Arrays.copyOf(randomArray1, arraySize);
-        Integer[] randomArray3 = Arrays.copyOf(randomArray1, arraySize);
+        Integer[] randomArray = arrayGenerator(arraySize);
+//        Integer[] randomArray2 = Arrays.copyOf(randomArray, arraySize);
+//        Integer[] randomArray3 = Arrays.copyOf(randomArray, arraySize);
 
-        var counterForBubbleSort = timeCounterForBubbleSort(randomArray1);
-        var counterForSelectionSort = timeCounterForSelectionSort(randomArray2);
-        var counterForInsertionSort = timeCounterForInsertionSort(randomArray3);
+        var counterForBubbleSort = timeCounterForBubbleSort(randomArray);
+        var counterForSelectionSort = timeCounterForSelectionSort(randomArray);
+        var counterForInsertionSort = timeCounterForInsertionSort(randomArray);
 
-        choice = bestSortChoice("bubbleSort", counterForBubbleSort,
+        String choice = bestSortChoice("bubbleSort", counterForBubbleSort,
                 "insertionSort", counterForInsertionSort,
                 "selectionSort", counterForSelectionSort);
 
-        System.out.println("choice = " + choice);
+        System.out.println("Быстрая сортировка = " + choice);
 
     }
 
@@ -256,11 +263,21 @@ public class IntegerListImpl implements IntegerList {
     }
 
     public static long timeCounterForBubbleSort(Integer[] arr) {
-        long start = System.currentTimeMillis();
-        bubbleSort(arr);
-        long count = System.currentTimeMillis() - start;
-        System.out.println(count);
-        return count;
+        long count = 0;
+        long avgTime = 0;
+        long sumTimes = 0;
+        int i = 0;
+        while (i < 1000) {
+            Integer[] arrayToSort = Arrays.copyOf(arr, arr.length);
+            long start = System.currentTimeMillis();
+            bubbleSort(arrayToSort);
+            count = System.currentTimeMillis() - start;
+            sumTimes = sumTimes + count;
+            i++;
+        }
+        avgTime = sumTimes / i;
+        System.out.println("Время пузырьковой сортировки: " + avgTime);
+        return avgTime;
     }
 
     public static void selectionSort(Integer[] arr) {
@@ -276,11 +293,21 @@ public class IntegerListImpl implements IntegerList {
     }
 
     public static long timeCounterForSelectionSort(Integer[] arr) {
-        long start = System.currentTimeMillis();
-        selectionSort(arr);
-        long count = System.currentTimeMillis() - start;
-        System.out.println(count);
-        return count;
+        long count = 0;
+        long avgTime = 0;
+        long sumTimes = 0;
+        int i = 0;
+        while (i < 1000) {
+            Integer[] arrayToSort = Arrays.copyOf(arr, arr.length);
+            long start = System.currentTimeMillis();
+            selectionSort(arrayToSort);
+            count = System.currentTimeMillis() - start;
+            sumTimes = sumTimes + count;
+            i++;
+        }
+        avgTime = sumTimes / i;
+        System.out.println("Время сортировки выбором: " + avgTime);
+        return avgTime;
     }
 
     public static void insertionSort(Integer[] arr) {
@@ -296,11 +323,21 @@ public class IntegerListImpl implements IntegerList {
     }
 
     public static long timeCounterForInsertionSort(Integer[] arr) {
-        long start = System.currentTimeMillis();
-        insertionSort(arr);
-        long count = System.currentTimeMillis() - start;
-        System.out.println(count);
-        return count;
+        long count = 0;
+        long avgTime = 0;
+        long sumTimes = 0;
+        int i = 0;
+        while (i < 1000) {
+            Integer[] arrayToSort = Arrays.copyOf(arr, arr.length);
+            long start = System.currentTimeMillis();
+            insertionSort(arrayToSort);
+            count = System.currentTimeMillis() - start;
+            sumTimes = sumTimes + count;
+            i++;
+        }
+        avgTime = sumTimes / i;
+        System.out.println("Время сортировки вставкой: " + avgTime);
+        return avgTime;
     }
 
     public static String bestSortChoice(String count1,

@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c0e090b-83de-471c-9f42-66cd4046043e" name="Changes" comment="Выполнил д.з.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/IntegerList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/IntegerListImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/exceptions/ElementNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/exceptions/IntegersIsFullException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/exceptions/InvalidIndexException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/exceptions/NullItemException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/algoritms_p2_hw/IntegerListImplTest.java" afterDir="false" />
+    <list default="true" id="8c0e090b-83de-471c-9f42-66cd4046043e" name="Changes" comment="Не проходит тест contains().">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StringListImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StringListImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/StringListImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StringListImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/IntegerListImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algoritms_p2_hw/IntegerListImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/algoritms_p2_hw/IntegerListImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/algoritms_p2_hw/IntegerListImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,8 +163,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.IntegerListImplTest" />
-        <item itemvalue="JUnit.IntegerListImplTest.contains" />
         <item itemvalue="Application.IntegerListImpl" />
+        <item itemvalue="JUnit.IntegerListImplTest.contains" />
         <item itemvalue="JUnit.IntegerListImplTest.shouldThrowNullItemExceptionWhenValidateItem" />
         <item itemvalue="JUnit.IntegerListImplTest.shouldThrowInvalidIndexExceptionWhenValidateIndex" />
       </list>
@@ -193,7 +185,8 @@
       <workItem from="1671157944264" duration="1274000" />
       <workItem from="1671245362197" duration="29293000" />
       <workItem from="1671358798076" duration="1964000" />
-      <workItem from="1671480466058" duration="8028000" />
+      <workItem from="1671480466058" duration="8963000" />
+      <workItem from="1671589897218" duration="10192000" />
     </task>
     <task id="LOCAL-00001" summary="Выполнил д.з.">
       <created>1671013447335</created>
@@ -202,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671013447335</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Не проходит тест contains().">
+      <created>1671488748380</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671488748380</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +221,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Выполнил д.з." />
-    <option name="LAST_COMMIT_MESSAGE" value="Выполнил д.з." />
+    <MESSAGE value="Не проходит тест contains()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Не проходит тест contains()." />
   </component>
 </project>

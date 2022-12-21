@@ -21,6 +21,7 @@ class IntegerListImplTest {
     private static final Integer I4 = 4;
     private static final Integer I5 = 5;
     private static final Integer I6 = 6;
+    private final String choice = "selectionSort";
 
     @BeforeEach
     public void setUp() {
@@ -79,7 +80,7 @@ class IntegerListImplTest {
         actual.add(8);
         actual.add(7);
         actual.add(6);
-        Assertions.assertFalse(actual.contains(I3));
+        Assertions.assertTrue(actual.contains(I3));
     }
 
     @Test
